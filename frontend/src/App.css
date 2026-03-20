@@ -1,0 +1,324 @@
+/**
+ * ==============================================================================
+ * MYLAW.COM - ENTERPRISE DESIGN SYSTEM
+ * ==============================================================================
+ * ARCHITECTURE: CSS Custom Properties (Variables)
+ * PURPOSE: Centralized theming for the Social Feeds, Chat, and Dashboards.
+ */
+
+:root {
+  /* -------------------------------------------------------------------------
+     1. BRAND PALETTE (The "Trust" Colors)
+     ------------------------------------------------------------------------- */
+  --color-primary: #0f172a;       /* Navy Blue - Authority & Law */
+  --color-primary-light: #334155; /* Lighter Navy - Hover states */
+  --color-accent: #c4a962;        /* Gold - Justice/Premium */
+  --color-accent-hover: #b09653;
+
+  /* -------------------------------------------------------------------------
+     2. FEED & SOCIAL COLORS
+     ------------------------------------------------------------------------- */
+  --bg-page: #f1f5f9;             /* Light Gray background (Like LinkedIn) */
+  --bg-card: #ffffff;             /* White Cards for Feed Posts */
+  --border-subtle: #e2e8f0;       /* Very light borders */
+  
+  /* -------------------------------------------------------------------------
+     3. STATUS INDICATORS (For Case Updates)
+     ------------------------------------------------------------------------- */
+  --status-success: #10b981;      /* "Case Won" / Online */
+  --status-warning: #f59e0b;      /* "Pending" / Away */
+  --status-danger: #ef4444;       /* "Urgent" / Busy */
+  --status-info: #3b82f6;         /* "New Lead" */
+
+  /* -------------------------------------------------------------------------
+     4. TYPOGRAPHY (Inter Font)
+     ------------------------------------------------------------------------- */
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Inter', sans-serif;
+
+  /* -------------------------------------------------------------------------
+     5. SPACING & LAYOUT (The "Grid" System)
+     ------------------------------------------------------------------------- */
+  --header-height: 70px;
+  --sidebar-width: 280px;
+  --feed-width: 600px;            /* Standard width for Social Feeds */
+  --radius-card: 12px;            /* Modern rounded corners */
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-hover: 0 10px 15px -3px rgba(0,0,0,0.1);
+  
+  /* -------------------------------------------------------------------------
+     6. Z-INDEX LAYERS (Stacking Context)
+     ------------------------------------------------------------------------- */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+}
+
+/* ==========================================================================
+   GLOBAL RESETS
+   ========================================================================== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-main);
+  background-color: var(--bg-page);
+  color: var(--color-primary);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ==========================================================================
+   LAYOUT: APP LOADER (Used in App.js)
+   ========================================================================== */
+.app-loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--bg-page);
+}
+
+/* ==========================================================================
+   COMPONENT: THE SOCIAL FEED CARD
+   * Used for: Client Requirements & Advocate Case Updates
+   ========================================================================== */
+.feed-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border-subtle);
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.feed-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.feed-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.feed-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 12px;
+  border: 2px solid var(--border-subtle);
+}
+
+.feed-user-info h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.feed-user-info span {
+  font-size: 0.85rem;
+  color: #64748b; /* Muted text */
+}
+
+.feed-content {
+  font-size: 0.95rem;
+  color: #334155;
+  margin-bottom: 15px;
+}
+
+.feed-actions {
+  display: flex;
+  gap: 15px;
+  padding-top: 15px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #64748b;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.action-btn:hover {
+  background-color: #f1f5f9;
+  color: var(--color-accent);
+}
+
+/* ==========================================================================
+   COMPONENT: BUTTONS & INTERACTIVE ELEMENTS
+   ========================================================================== */
+.btn-primary-law {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 10px 24px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-primary-law:hover {
+  background-color: var(--color-primary-light);
+  transform: translateY(-1px);
+}
+
+.btn-accent {
+  background-color: var(--color-accent);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-accent:hover {
+  background-color: var(--color-accent-hover);
+}
+
+/* ==========================================================================
+   LOADING ANIMATION (Skeleton Screens)
+   ========================================================================== */
+@keyframes shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: 200px 0; }
+}
+
+.skeleton {
+  background: #f1f5f9;
+  background-image: linear-gradient(90deg, #f1f5f9 0px, #e2e8f0 40px, #f1f5f9 80px);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: 4px;
+}
+
+/* =====================================================
+   CHAT UI: Flexbox layout + no overflow
+   ===================================================== */
+.chat-page {
+  min-height: calc(100vh - var(--header-height));
+  max-height: calc(100vh - var(--header-height));
+  width: 100%;
+}
+
+.chat-layout {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.chat-list {
+  width: 320px;
+  max-width: 320px;
+  min-width: 240px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border-subtle);
+  background: #ffffff;
+}
+
+.chat-list-inner {
+  flex: 1;
+  min-width: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.chat-list-item {
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  min-width: 0;
+}
+
+.chat-list-item.active,
+.chat-list-item:hover {
+  background: #f1f5f9;
+}
+
+.chat-window {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chat-history {
+  min-width: 0;
+  overflow-y: auto;
+  padding: 1rem;
+  background: #f8fafc;
+}
+
+.chat-msg {
+  max-width: 80%;
+}
+
+.chat-msg.incoming {
+  background: #ffffff;
+  color: #0f172a;
+  align-self: flex-start;
+}
+
+.chat-msg.outgoing {
+  background: #0f172a;
+  color: #ffffff;
+  align-self: flex-end;
+}
+
+.chat-input {
+  flex-shrink: 0;
+  background: #fff;
+}
+
+@media (max-width: 991.98px) {
+  .chat-layout {
+    flex-direction: column;
+  }
+
+  .chat-list {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    border-right: none;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .chat-history {
+    height: calc(100vh - var(--header-height) - 200px);
+  }
+}

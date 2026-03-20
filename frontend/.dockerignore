@@ -1,0 +1,37 @@
+# ==============================================================================
+# MYLAW.COM - FRONTEND DOCKER IGNORE
+# ==============================================================================
+# PURPOSE: Prevents unnecessary/sensitive files from being copied into the container.
+
+# 1. DEPENDENCIES (Let Docker install these fresh inside the container)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# 2. LOCAL BUILD OUTPUTS (We build this inside the container)
+build/
+dist/
+out/
+
+# 3. VERSION CONTROL (Saves space and prevents source code history leaks)
+.git/
+.gitignore
+
+# 4. ENVIRONMENT VARIABLES (CRITICAL SECURITY)
+# Never bake local .env secrets into a Docker image!
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# 5. OS GENERATED FILES
+.DS_Store
+Thumbs.db
+
+# 6. INFRASTRUCTURE & IDE FILES
+k8s/
+Dockerfile
+.dockerignore
+.vscode/
+.idea/

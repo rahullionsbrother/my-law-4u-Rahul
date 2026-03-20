@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=0" />
+    <meta name="theme-color" content="#0f172a" />
+    <meta 
+      name="description" 
+      content="Mylaw.com - The Enterprise Legal Network. Connect with top-tier advocates, manage litigation, and automate legal workflows." 
+    />
+    <meta name="keywords" content="Law, Advocate, Legal Tech, High Court, Supreme Court, Legal Advice" />
+    
+    <meta property="og:title" content="Mylaw.com | Enterprise Legal Portal" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.mylaw.com" />
+    <meta property="og:image" content="%PUBLIC_URL%/og-banner.jpg" />
+
+    <meta 
+      http-equiv="Content-Security-Policy" 
+      content="default-src 'self'; 
+               script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; 
+               style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; 
+               img-src 'self' data: https://*; 
+               font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; 
+               connect-src 'self' http://localhost:*; 
+               object-src 'none';" 
+    />
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Mylaw.com | Legal Network</title>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #f8fafc;
+        font-family: 'Inter', sans-serif;
+        overflow-x: hidden;
+      }
+      
+      /* The App Shell Loader */
+      #app-shell-loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #ffffff;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 0.4s ease-out;
+      }
+      
+      .loader-logo {
+        font-size: 2rem;
+        font-weight: 800;
+        color: #0f172a;
+        margin-bottom: 24px;
+        letter-spacing: -1px;
+      }
+
+      .loader-spinner {
+        width: 48px;
+        height: 48px;
+        border: 4px solid #e2e8f0;
+        border-top: 4px solid #0f172a; /* Navy Blue */
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <div style="padding: 40px; text-align: center;">
+        <h2>JavaScript Required</h2>
+        <p>We are sorry, but <strong>Mylaw.com</strong> requires JavaScript to function correctly.</p>
+      </div>
+    </noscript>
+
+    <div id="root">
+      <div id="app-shell-loader">
+        <div class="loader-logo">
+          <i class="fa-solid fa-scale-balanced"></i> Mylaw.com
+        </div>
+        <div class="loader-spinner"></div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+# ==============================================================================
+# MYLAW.COM - AUTH SERVICE DOCKER IGNORE
+# ==============================================================================
+
+# Dependencies
+node_modules/
+npm-debug.log
+
+# Environment Variables (CRITICAL: Never bake secrets into an image)
+.env
+.env.*
+
+# Git
+.git/
+.gitignore
+
+# OS Files
+.DS_Store

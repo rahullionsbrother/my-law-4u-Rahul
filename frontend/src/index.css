@@ -1,0 +1,97 @@
+/**
+ * ==============================================================================
+ * MYLAW.COM - GLOBAL RESET & BASE STYLES
+ * ==============================================================================
+ * This file handles the low-level CSS that applies to the entire document.
+ * It is imported once in index.js.
+ */
+
+/* 1. CSS VARIABLES (Theme Foundation) 
+   We define these here so they trickle down to every component.
+*/
+:root {
+  /* Brand Colors */
+  --color-primary: #0f172a;       /* Navy Blue (Authority) */
+  --color-primary-hover: #1e293b;
+  --color-accent: #d4af37;        /* Gold (Justice) */
+  --color-danger: #ef4444;        /* Errors */
+  --color-success: #10b981;       /* Success */
+  
+  /* Backgrounds */
+  --bg-body: #f8fafc;             /* Light Gray (Eye comfort) */
+  --bg-surface: #ffffff;          /* Pure White (Cards) */
+  
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* 2. GLOBAL RESET (The "Clean Slate") */
+*, *::before, *::after {
+  box-sizing: border-box; /* Crucial for predictable layouts */
+}
+
+html {
+  font-size: 16px; /* Base size */
+  scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  background-color: var(--bg-body);
+  color: var(--color-primary);
+  
+  /* Typography Optimization */
+  -webkit-font-smoothing: antialiased; /* Sharp text on Mac */
+  -moz-osx-font-smoothing: grayscale;  /* Sharp text on Firefox */
+  text-rendering: optimizeLegibility;
+  
+  /* Prevent horizontal scroll if animations go off-screen */
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* 3. TYPOGRAPHY DEFAULTS */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.6; /* Better readability for legal text */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+/* 4. UTILITIES */
+/* Custom scrollbar for Webkit (Chrome/Safari/Edge) - Professional Look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1; 
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8; 
+}
+
+/* Focus styles for accessibility (Keyboard navigation) */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
